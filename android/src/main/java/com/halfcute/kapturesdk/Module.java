@@ -70,7 +70,7 @@ public class Module extends ReactContextBaseJavaModule {
 		  errorCallback(ERROR_NO_ACTIVITY, ERROR_NO_ACTIVITY_MESSAGE);
 		  return;
 	  }
-	  KapchatHelper.startChatScreen(activity)
+	  KapchatHelper.startChatScreen(activity);
    }
 
 
