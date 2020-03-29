@@ -52,7 +52,6 @@ public class Module extends ReactContextBaseJavaModule {
 		  return;
 	  }
 
-	  // "2aa568ee58cf3a3b323a32efc8ac9d55473ec7f38739493952", "LXTVUMTIJJK8NuNQ"
 
 	  KapchatHelper.initialise(activity, customerCode, partnerSupportKey, encryptionKey, new CallBackResponse() {
 		  @Override
