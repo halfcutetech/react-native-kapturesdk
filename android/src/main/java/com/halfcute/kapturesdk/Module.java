@@ -43,35 +43,50 @@ public class Module extends ReactContextBaseJavaModule {
     Toast.makeText(getReactApplicationContext(), message, duration).show();
   }
 
-  @ReactMethod
-	public void initialise(String customerCode, String partnerSupportKey, String encryptionKey){
-	  final Activity activity = getCurrentActivity();
 
-	  if (activity == null) {
-		  errorCallback(ERROR_NO_ACTIVITY, ERROR_NO_ACTIVITY_MESSAGE);
-		  return;
-	  }
+	@ReactMethod
+	public String initialise(String customerCode, String partnerSupportKey, String encryptionKey){
+		final Activity activity = getCurrentActivity();
 
+		if (activity == null) {
+			return ERROR_NO_ACTIVITY;
+		}
 
-	  KapchatHelper.initialise(activity, customerCode, partnerSupportKey, encryptionKey, new CallBackResponse() {
-		  @Override
-		  public void intialiseResponse(Boolean responseStatus) {
-			  // Success response status if all the parameters are valid
-			  return responseStatus;
-		  }
-	  });
-  }
+		String finalResponse = "true";
 
-  @ReactMethod
+		KapchatHelper.initialise(activity, customerCode, partnerSupportKey, encryptionKey, new CallBackResponse() {
+				@Override
+				public void intialiseResponse(String s) {
+					final String finalResponse = s;
+				}
+			}
+		);
+		return finalResponse;
+	}
+
+	@ReactMethod
 	public void openChatScreen(){
-	  final Activity activity = getCurrentActivity();
+		final Activity activity = getCurrentActivity();
 
-	  if (activity == null) {
-		  errorCallback(ERROR_NO_ACTIVITY, ERROR_NO_ACTIVITY_MESSAGE);
-		  return;
-	  }
-	  KapchatHelper.startChatScreen(activity);
-   }
+		if (activity == null) {
+			return;
+		}
+		KapchatHelper.startChatScreen(activity);
+	}
+
+	@ReactMethod
+	public void openChatScreenwithMessage(String msg){
+		final Activity activity = getCurrentActivity();
+
+		if (activity == null) {
+			return;
+		}
+		KapchatTemplateMessage templateMessage = new KapchatTemplateMessage();
+		templateMessage.setMessage(msg);
+
+		KapchatHelper.startChatScreenWithTemplate(activity,templateMessage);
+	}
+
 
 
 
