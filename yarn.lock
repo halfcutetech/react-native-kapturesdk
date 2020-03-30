@@ -2,6 +2,3 @@
 # yarn lockfile v1
 
 
-"react-native-kapturesdk@https://github.com/halfcutetech/react-native-kapturesdk":
-  version "0.0.1"
-  resolved "https://github.com/halfcutetech/react-native-kapturesdk#daaaabc3101a725582718b9de27cf97fe5a4f055"
