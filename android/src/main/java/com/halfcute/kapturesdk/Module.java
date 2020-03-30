@@ -3,6 +3,7 @@ package com.halfcute.kapturesdk;
 import android.widget.Toast;
 import android.app.Activity;
 
+import com.adjetter.kapchatsdk.structure.KapchatTemplateMessage;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
